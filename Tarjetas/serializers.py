@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import Cuenta
+from .models import Tarjeta
 
 
-class CuentaSerializer(serializers.ModelSerializer):
+class TarjetaSerializer(serializers.ModelSerializer):
     cliente =  serializers.ReadOnlyField(source = 'cliente.name')
     class Meta:
-        model = Cuenta
+        model = Tarjeta
         fields = "__all__"
         depth = 1
         read_only_fields = ("id",)

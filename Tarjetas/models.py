@@ -15,7 +15,7 @@ class Tarjeta(models.Model):
     fecha_expiracion = models.CharField(max_length=7)
     tipo = models.CharField(max_length=7)
     marca = models.ForeignKey(Marca_Tarjeta, on_delete=models.CASCADE)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, related_name='tarjetas', on_delete=models.CASCADE)
 
 
     def __str__(self):

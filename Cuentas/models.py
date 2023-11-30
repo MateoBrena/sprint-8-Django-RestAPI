@@ -9,7 +9,7 @@ class Tipo_Cuenta(models.Model):
         return self.cuenta_tipo
 
 class Cuenta(models.Model):
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, related_name='cuentas', on_delete=models.CASCADE)
     balance = models.IntegerField()
     iban = models.CharField(max_length=100)
     tipo = models.ForeignKey(Tipo_Cuenta, on_delete=models.CASCADE)

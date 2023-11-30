@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import Cuenta
+from .models import Prestamo
 
 
-class CuentaSerializer(serializers.ModelSerializer):
+class PrestamoSerializer(serializers.ModelSerializer):
     cliente =  serializers.ReadOnlyField(source = 'cliente.name')
     class Meta:
-        model = Cuenta
+        model = Prestamo
         fields = "__all__"
         depth = 1
         read_only_fields = ("id",)

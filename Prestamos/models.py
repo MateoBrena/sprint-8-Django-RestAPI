@@ -7,7 +7,7 @@ class Prestamo(models.Model):
     fecha = models.DateField()
     monto = models.IntegerField()
     estado = models.CharField(max_length=30)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, related_name='prestamos', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.tipo + ". Monto: $" + str(self.monto)
