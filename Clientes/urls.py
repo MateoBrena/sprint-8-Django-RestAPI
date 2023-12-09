@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import api_root, ClientesList, ClienteDetail, DireccionesList, SucursalesList
-from .views import CuentasList, TarjetasList, PrestamosList, EmpleadosList
+from .views import CuentasList, TarjetasList, PrestamosList, TransferList, PagosList, EmpleadosList
 
 urlpatterns = [
     path('', api_root),
@@ -11,5 +11,7 @@ urlpatterns = [
     path('api/cuentas/', CuentasList.as_view(), name='cuentas-list'),
     path('api/tarjetas/', TarjetasList.as_view(), name='tarjetas-list'),
     path('api/prestamos/', PrestamosList.as_view(), name='prestamos-list'),
+    path('api/transferencias/', TransferList.as_view(), name='transfer-list'),
+    path('api/pagos/', PagosList.as_view(), name='pagos-list'),
     path('api/empleados/', EmpleadosList.as_view(), name='empleados-list')
 ]

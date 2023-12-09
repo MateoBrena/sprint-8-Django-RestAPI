@@ -14,6 +14,10 @@ from Prestamos.models import Prestamo
 from Prestamos.serializers import PrestamoSerializer
 from Empleados.models import Empleado
 from Empleados.serializers import EmpleadoSerializer
+from Transferencias.models import Transferencia
+from Transferencias.serializers import TransferenciaSerializer
+from Pagos.models import Pagos
+from Pagos.serializers import PagoSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
@@ -28,6 +32,8 @@ def api_root(request, format = None):
         'tarjetas': reverse('tarjetas-list', request=request, format=format),
         'prestamos': reverse('prestamos-list', request=request, format=format),
         'direcciones': reverse('direcciones-list', request=request, format=format),
+        'transferencias': reverse('transfer-list', request=request, format=format),
+        'pagos': reverse('pagos-list', request=request, format=format),
         'empleados': reverse('empleados-list', request=request, format=format),
     })
 class ClientesList(generics.ListAPIView):
@@ -62,6 +68,16 @@ class PrestamosList(generics.ListAPIView):
     queryset = Prestamo.objects.all()
     serializer_class = PrestamoSerializer
 
+class TransferList(generics.ListAPIView):
+    queryset = Transferencia.objects.all()
+    serializer_class = TransferenciaSerializer
+
+class PagosList(generics.ListAPIView):
+    queryset = Pagos.objects.all()
+    serializer_class = PagoSerializer
+
 class EmpleadosList(generics.ListAPIView):
     queryset = Empleado.objects.all()
     serializer_class = EmpleadoSerializer
+
+

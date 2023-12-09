@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'Empleados',
     'Prestamos',
     'Sucursales',
-    'Tarjetas'
+    'Tarjetas',
+    'Transferencias',
+    'Pagos'
 ]
 
 MIDDLEWARE = [
